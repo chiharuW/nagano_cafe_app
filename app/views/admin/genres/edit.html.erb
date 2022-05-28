@@ -1,0 +1,7 @@
+<h2>ジャンル編集画面画面</h2>
+
+ <%= form_with model :@genre do |f| %>
+  <h3>ジャンル名</h3>
+   <%= f.text_field :name %>
+   <%= f.submit '更新' 
+ <% end %>

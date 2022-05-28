@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amount_billed: MyString
+  amount: 1
+  production_active: 1
+
+two:
+  amount_billed: MyString
+  amount: 1
+  production_active: 1
