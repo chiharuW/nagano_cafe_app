@@ -17,8 +17,8 @@ Rails.application.routes.draw do
    get 'items' => 'public/items#index'
 
   namespace :admin do
-   get 'items'  => 'admin/items#index'
    resources :genres, only: [:edit, :index, :create, :update]
+   resources :items, except: [:destroy]
   end
 
 end
