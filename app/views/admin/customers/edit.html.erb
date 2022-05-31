@@ -1,0 +1,16 @@
+<h2>会員情報編集画面</h2>
+
+ <%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
+ <h3>会員氏名</h3>
+   <%= f.text_field :full_name %>
+ <h3>会員氏名（かな）</h3>
+  <%= f.text_area :full_name_kana %>
+ <h3>メールアドレス</h3>
+  <%= f.text_field :email %>
+ <h3>郵便番号</h3>
+  <%= f.text_field :postal_cade %>
+ <h3>電話番号</h3>
+  <%= f.text_field :telephone_number %>
+ 
+　<%= f.submit '変更保存' %>
+ <% end %>

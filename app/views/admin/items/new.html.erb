@@ -6,6 +6,7 @@
   <%= f.text_area :introduction %>
  <h3>価格</h3>
   <%= f.text_field :price %>
- <!--ジャンル-->
- <%= f.submit "登録" %>
+ <h3>ジャンル</h3>
+  <%= f.collection_select(:genre_id, @genres, :id, :name) %>
+ <%= f.submit"登録" %>
 <% end %>

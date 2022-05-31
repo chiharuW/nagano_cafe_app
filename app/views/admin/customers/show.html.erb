@@ -1,0 +1,23 @@
+<h2>会員詳細</h2>
+
+<table>
+ <tr>
+  <th>会員ID</th>
+  <th>会員氏名</th>
+  <th>会員氏名(かな)</th>
+  <th>メールアドレス</th>
+  <th>郵便番号</th>
+  <th>住所</th>
+  <th>電話番号</th>
+ </tr>
+ <tr>
+  <td><%= @customer.id %></td>
+  <td><%= @customer.full_name %></td>
+  <td><%= @customer.full_name_kana %></td>
+  <td><%= @customer.email%></td>
+  <td><%= @customer.postal_code %></td>
+  <td><%= @customer.address %></td>
+  <td><%= @customer.telephone_number %></td>
+ </tr>
+
+ <%= link_to "編集", edit_admin_customer_path(@customer.id) %>

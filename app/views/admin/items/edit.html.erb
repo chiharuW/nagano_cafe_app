@@ -1,0 +1,13 @@
+<h2>商品編集画面</h2>
+
+ <%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f| %>
+ <h3>商品名</h3>
+  <%= f.text_field :name %>
+ <h3>商品説明</h3>
+  <%= f.text_area :introduction %>
+ <h3>価格</h3>
+  <%= f.text_field :price %>
+ <h3>ジャンル</h3>
+  <%= f.collection_select(:genre_id, @genres, :id, :name) %>
+　<%= f.submit '変更保存' %>
+ <% end %>

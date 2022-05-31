@@ -17,8 +17,10 @@ Rails.application.routes.draw do
    get 'items' => 'public/items#index'
 
   namespace :admin do
+   get 'top' => 'homes#top'
    resources :genres, only: [:edit, :index, :create, :update]
-   resources :items, except: [:destroy]
+   resources :items, only: [:new, :show, :edit, :index, :create, :update]
+   resources :customers, only: [:index, :show, :edit, :update]
   end
 
 end

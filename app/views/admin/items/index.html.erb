@@ -4,14 +4,15 @@
   <tr>
     <th>商品名</th>
     <th>商品説明</th>
+    <th>商品価格</th>
     <th>商品ジャンル</th>
   </tr>
   <% @items.each do |item| %>
   <tr>
-    <td><%= item.name %></td>
+    <td><%= link_to item.name, edit_admin_item_path(item.id) %></td>
     <td><%= item.introduction %></td>
     <td><%= item.price %></td>
-    <!--<td>genre</td>-->
+    <td><%= item.genre_id %> </td>
   </tr>
   <% end %>
 </table>
