@@ -15,12 +15,14 @@ Rails.application.routes.draw do
 
 
    get 'items' => 'public/items#index'
+   resources :customers, only:[:show, :edit, :update, :unsubscribe, :withdraw]
 
   namespace :admin do
    get 'top' => 'homes#top'
    resources :genres, only: [:edit, :index, :create, :update]
    resources :items, only: [:new, :show, :edit, :index, :create, :update]
    resources :customers, only: [:index, :show, :edit, :update]
+   resources :orders, only: [:index, :show, :edit, :update]   
   end
 
 end
