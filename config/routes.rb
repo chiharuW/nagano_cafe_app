@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
 
    get '/' => 'public/homes#top'
+   get '/about'=> "public/homes#about", as: "about"
    resources :customers, only:[:show, :edit, :update, :unsubscribe, :withdraw]
    resources :sessions, only:[:new, :create, :destroy]
 

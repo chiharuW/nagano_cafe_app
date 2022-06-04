@@ -10,52 +10,7 @@
   </head>
 
   <body>
-    <header>
-     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div class="container-fluid">
-       <a class="navbar-brand" href=top>NaganoCakeApp_admin</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-       <span class="navbar-toggler-icon"></span>
-      </button>
-       <div class="collapse navbar-collapse"  id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-
-        <% if customer_signed_in? %>
-         <li class="nav-item"><a class="nav-link" href=items>一覧</a></li>
-         <li class="nav-item"><a class="nav-link" href=customers>一覧</a></li>
-         <li class="nav-item"><a class="nav-link" href="orders">注文履歴一覧</a></li>
-         <li class="nav-item"><a class="nav-link" href=genres>一覧</a></li>
-          <li class="nav-item"><a class="nav-link" href=/customers/sign_out>ログアウト</a></li>
-         <% elsif %>
-          <li class="nav-item"><a class="nav-link" href=/customers/sign_in>ログイン</a></li>
-         <% else %>
-          <li class="nav-item"><a class="nav-link" href=/customers/sign_up>ユーザ登録</a></li>
-         <!--<form  class="form-inline" action="{% url 'index' %}" method="post">-->
-         <!--<li class="nav-item"><a class="nav-link" href=sessions>ログアウト</a></li>-->
-
-         <% end %>
-
-        <!--< else >-->
-        <!-- <li class="nav-item"><a class="nav-link" href=items>商品一覧</a></li>-->
-        <!-- <li class="nav-item"><a class="nav-link" href=customers>会員一覧</a></li>-->
-        <!-- <li class="nav-item"><a class="nav-link" href="orders">注文履歴一覧</a></li>-->
-        <!-- <li class="nav-item"><a class="nav-link" href=genres>ジャンル一覧</a></li>-->
-        <!-- <li class="nav-item"><a class="nav-link" href=sessions>ログアウト</a></li>-->
-        <!--< end >-->
-
-         <form class="d-flex">
-      　　  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        　<button class="btn btn-outline-success" type="submit">Search</button>
-      　 </form>
-        </ul>
-       </div>
-      </div>
-     </nav>
-    </header>
-
-    <main class="mb-auto">
     <%= yield %>
-    </main>
 
     <footer class="bg-secondary text-white pt-5 pb-4">
       <div class="container">

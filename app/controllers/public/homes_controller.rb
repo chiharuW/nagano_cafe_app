@@ -4,4 +4,7 @@ class Public::HomesController < ApplicationController
   @items =  Item.limit(5).order(:created_at)
  end
 
+ def about
+ end
+ 
 end
