@@ -10,7 +10,7 @@
 
     <% if customer_signed_in? %>
 
-     <%= link_to customer_path(current_customer.id), method: :get, class: 'nav-link text-light p-2' do %>
+     <%= link_to customer_path(current_customer.id), class: 'nav-link text-light p-2' do %>
       <i class="fas fa-portrait"></i>マイページ
      <% end %>
  
