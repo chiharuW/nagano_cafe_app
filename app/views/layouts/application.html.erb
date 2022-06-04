@@ -10,27 +10,74 @@
   </head>
 
   <body>
-
     <header>
      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div class="container">
+      <div class="container-fluid">
        <a class="navbar-brand" href=top>NaganoCakeApp_admin</a>
-       <div class="collapse navbar-collapse" id="navbarNav">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+      </button>
+       <div class="collapse navbar-collapse"  id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-         <li class="nav-item active"><a class="nav-link" href=items>商品一覧</a></li>
-         <li class="nav-item"><a class="nav-link" href=customers>会員一覧</a></li>
-         <li class="nav-item"><a class="nav-link" href="#">注文履歴一覧</a></li>
-         <li class="nav-item"><a class="nav-link" href=genres>ジャンル一覧</a></li>
-         <li class="nav-item"><a class="nav-link_disabled" href=session>ログアウト</a></li>
+
+        <% if customer_signed_in? %>
+         <li class="nav-item"><a class="nav-link" href=items>一覧</a></li>
+         <li class="nav-item"><a class="nav-link" href=customers>一覧</a></li>
+         <li class="nav-item"><a class="nav-link" href="orders">注文履歴一覧</a></li>
+         <li class="nav-item"><a class="nav-link" href=genres>一覧</a></li>
+          <li class="nav-item"><a class="nav-link" href=/customers/sign_out>ログアウト</a></li>
+         <% elsif %>
+          <li class="nav-item"><a class="nav-link" href=/customers/sign_in>ログイン</a></li>
+         <% else %>
+          <li class="nav-item"><a class="nav-link" href=/customers/sign_up>ユーザ登録</a></li>
+         <!--<form  class="form-inline" action="{% url 'index' %}" method="post">-->
+         <!--<li class="nav-item"><a class="nav-link" href=sessions>ログアウト</a></li>-->
+
+         <% end %>
+
+        <!--< else >-->
+        <!-- <li class="nav-item"><a class="nav-link" href=items>商品一覧</a></li>-->
+        <!-- <li class="nav-item"><a class="nav-link" href=customers>会員一覧</a></li>-->
+        <!-- <li class="nav-item"><a class="nav-link" href="orders">注文履歴一覧</a></li>-->
+        <!-- <li class="nav-item"><a class="nav-link" href=genres>ジャンル一覧</a></li>-->
+        <!-- <li class="nav-item"><a class="nav-link" href=sessions>ログアウト</a></li>-->
+        <!--< end >-->
+
+         <form class="d-flex">
+      　　  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        　<button class="btn btn-outline-success" type="submit">Search</button>
+      　 </form>
         </ul>
        </div>
       </div>
      </nav>
     </header>
 
-  <main>
+    <main class="mb-auto">
     <%= yield %>
-  </main>
+    </main>
+
+    <footer class="bg-secondary text-white pt-5 pb-4">
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <p>おいしいスイーツをおなかいっぱい</p>
+          </div>
+          <div class="col-md-8">
+            <h6 class="text-white mt-2 mb-3">Link</h6>
+            <ul class="p-0 list-unstyled">
+              <li>
+                <a href="" title="About" class="text-white-50">会社概要</a>
+              </li>
+              <li>
+                <a href="" title="License informations" class="text-white-50">プライバシーポリシー</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
 
   </body>
+
 </html>
