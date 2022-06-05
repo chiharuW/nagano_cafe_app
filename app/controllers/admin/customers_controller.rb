@@ -12,7 +12,7 @@ class Admin::CustomersController < ApplicationController
    @customer = Customer.find(params[:id])
   end
 
-  def uodate
+  def update
    customer = Customer.find(params[:id])
    customer.update(customer.params)
    redirect_to admin_customer_path(customer.id)

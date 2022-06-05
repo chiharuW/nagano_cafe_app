@@ -16,8 +16,30 @@ Rails.application.routes.draw do
 
    get '/' => 'public/homes#top'
    get '/about'=> "public/homes#about", as: "about"
-   resources :customers, only:[:show, :edit, :update, :unsubscribe, :withdraw]
+   # get '/mypage' => 'customers#mypage'
+   scope module: :public do
+    resource :customers, only:[:show, :edit, :update] do
+     collection do
+      get :my_page
+     end
+    end
+   end
+   # resources :customers, only:[:show, :edit, :update, :unsubscribe, :withdraw]
    resources :sessions, only:[:new, :create, :destroy]
+   
+   scope module: :public do
+    resources :address, only:[:new, :create, :index, :update, :edit, :destroy]
+   end
+   
+   scope module: :public do
+    resources :orders, only:[:new, :create, :index, :show] do
+     collection do
+      post :comfirm
+      get :complete
+     end
+    end
+   end
+
 
   namespace :admin do
    root to: 'homes#top'

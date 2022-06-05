@@ -1,0 +1,21 @@
+<%= render 'public/sessions/list' %>
+
+<div class="container pt-5 pb-4">
+ <div class="row">
+  <div class="col-md-8">
+
+   <h2>マイページ</h2> <h3>会員登録情報</h3>
+<table class="table">
+ <tr><td>会員ID</td><td><%= current_customer.id %></td></tr>
+ <tr><td>苗字</td><td><%= current_customer.last_name %></td></tr>
+ <tr><td>名前</td><td><%= current_customer.first_name %></td></tr>
+ <tr><td>郵便番号</td><td><%= current_customer.postal_code %></td></tr>
+ <tr><td>住所</td><td><%= current_customer.address %></td></tr>
+ <tr><td>電話番号</td><td><%= current_customer.telephone_number %></td></tr>
+</table>
+<%= link_to "編集", edit_customers_path %><br>
+<%= link_to "注文履歴一覧", orders_path %><br>
+<%= link_to "発送先一覧", address_index_path %>
+</div>
+</div>
+</div>

@@ -1,12 +1,16 @@
 class Public::CustomersController < ApplicationController
-   before_action :ensure_correct_customer, only:[:edit, :update]
-
-  def show
-
+ 
+  def my_page
+  end
+  
+  def edit
+   @customer = Customer.find(params[:id])
   end
 
-  def edit
-    @customer = Customer.find(params[:id])
+  def update
+   customer = Customer.find(params[:id])
+   customer.update(customer.params)
+   redirect_to my_page_customers_path
   end
 
 
