@@ -18,19 +18,23 @@ Rails.application.routes.draw do
    get '/about'=> "public/homes#about", as: "about"
    # get '/mypage' => 'customers#mypage'
    scope module: :public do
-    resource :customers, only:[:show, :edit, :update] do
+    resource :customers do
      collection do
       get :my_page
+      get :unsubscribe
+      get :edit_page
      end
+     patch "/withdraw" => "customers#withdraw"
+     patch "/update" => "customers#update"
     end
    end
    # resources :customers, only:[:show, :edit, :update, :unsubscribe, :withdraw]
    resources :sessions, only:[:new, :create, :destroy]
-   
+
    scope module: :public do
-    resources :address, only:[:new, :create, :index, :update, :edit, :destroy]
+    resources :addresses, only:[:create, :index, :update, :edit, :destroy]
    end
-   
+
    scope module: :public do
     resources :orders, only:[:new, :create, :index, :show] do
      collection do

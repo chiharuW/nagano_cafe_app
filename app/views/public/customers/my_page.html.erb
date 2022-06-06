@@ -13,9 +13,9 @@
  <tr><td>住所</td><td><%= current_customer.address %></td></tr>
  <tr><td>電話番号</td><td><%= current_customer.telephone_number %></td></tr>
 </table>
-<%= link_to "編集", edit_customers_path %><br>
+<%= link_to "編集",  edit_page_customers_path %><br>
 <%= link_to "注文履歴一覧", orders_path %><br>
-<%= link_to "発送先一覧", address_index_path %>
+<%= link_to "発送先一覧", addresses_path %>
 </div>
 </div>
 </div>
