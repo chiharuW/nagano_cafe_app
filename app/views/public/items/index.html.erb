@@ -1,20 +1,21 @@
-<%= render 'admin/sessions/list' %>
-
+<%= render 'public/sessions/list' %>
 <div class="container pt-5 pb-4">
  <div class="row">
   <div class="col-md-6">
-  <h2>商品一覧</h2>
+
+
+<h2>商品一覧</h2>
    <table>
     <tr>
     <th>商品名</th>
-    <th>商品画像</th>
+    <th>商品</th>
     <th>商品説明</th>
     <th>商品価格</th>
     <th>商品ジャンル</th>
   </tr>
   <% @items.each do |item| %>
   <tr>
-    <td><%= link_to item.name, edit_admin_item_path(item.id) %></td>
+    <td><%= link_to item.name, item_path(item.id) %></td>
     <td>
      <% if item.image.attached? %>
       <%= image_tag item.image, size: "200x200" %>
@@ -24,13 +25,11 @@
     </td>
     <td><%= item.introduction %></td>
     <td><%= item.price %></td>
-    <td><%= @genre.name %> </td>
+    <td><%= item.genre_id %> </td>
   </tr>
   <% end %>
 </table>
-</div>
-<div class="col-md-4">
-<%= link_to "新商品登録",  new_admin_item_path %>
+
 </div>
 </div>
 </div>

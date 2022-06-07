@@ -34,6 +34,10 @@ Rails.application.routes.draw do
    scope module: :public do
     resources :addresses, only:[:create, :index, :update, :edit, :destroy]
    end
+   
+   scope module: :public do
+    resources :items, only:[:index, :show]
+   end
 
    scope module: :public do
     resources :orders, only:[:new, :create, :index, :show] do

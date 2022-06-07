@@ -1,0 +1,32 @@
+<%= render 'public/sessions/list' %>
+<div class="container pt-5 pb-4">
+ <div class="row">
+  <div class="col-md-6">
+
+  <h2>配送先編集画面</h2>
+
+   <%= form_with model: @address do |f| %>
+     <div class="form_group mt-3">
+      <label for="inputName">配送先宛名</label>
+      <br><%= f.text_field :name %>
+     </div>
+     <div class="form_group mt-3">
+      <label for="inputintroduction">配送先郵便番号</label>
+      <br><%= f.text_area :postal_code %>
+     </div>
+     <div class="form_group mt-3">
+      <label for="inputintroduction">配送先住所</label>
+      <br><%= f.text_area :address %>
+     </div>
+     <div class="form_group mt-3">
+      <%= f.submit '更新', class:"btn btn-success" %>
+     </div>
+    <% end %>
+     <div>
+        <%= link_to "戻る", addresses_path %>
+     </div>
+   </div>
+
+
+</div>
+</div>

@@ -5,6 +5,8 @@
  <%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f| %>
  <h3>商品名</h3>
   <%= f.text_field :name %>
+ <h3>商品画像</h3>
+  <%= f.file_field :image, accept: "image/*" %>
  <h3>商品説明</h3>
   <%= f.text_area :introduction %>
  <h3>価格</h3>

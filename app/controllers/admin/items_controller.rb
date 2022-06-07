@@ -2,6 +2,8 @@ class Admin::ItemsController < ApplicationController
 
   def index
    @items = Item.all
+   # @item = Item.find(params[:id])
+   # @genre = @item.genres
   end
 
   def new
@@ -32,7 +34,8 @@ class Admin::ItemsController < ApplicationController
 
  private
   def item_params
-   params.require(:item).permit(:name, :introduction, :price, :genre_id)
+   params.require(:item).permit(:name, :introduction, :price, :genre_id, :image)
   end
+
 
 end
