@@ -4,18 +4,17 @@
   <div class="col-md-6">
 
 
-<h2>商品一覧</h2>
+<h2>ショッピングカート</h2>
    <table>
     <tr>
     <th>商品名</th>
-    <th>商品</th>
-    <th>商品説明</th>
-    <th>商品価格</th>
-    <th>商品ジャンル</th>
+    <th>単価（税込）</th>
+    <th>数量</th>
+    <th>小計</th>
+    <th>sakujo</th>
   </tr>
-  <% @items.each do |item| %>
+  <% @cart_items.each do |cart_item| %>
   <tr>
-    <td><%= link_to item.name, item_path(item.id) %></td>
     <td>
      <% if item.image.attached? %>
       <%= image_tag item.image, size: "200x200" %>
@@ -23,9 +22,7 @@
       <%= image_tag 'no_image', size: "200x200" %>
      <% end %>
     </td>
-    <td><%= item.introduction %></td>
-    <td><%= item.price %></td>
-    <td><%= item.genre.name %> </td>
+    <td><%= item.name %></td>
   </tr>
   <% end %>
 </table>

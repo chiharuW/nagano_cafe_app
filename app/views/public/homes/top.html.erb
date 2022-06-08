@@ -1,16 +1,25 @@
 <%= render 'public/sessions/list' %>
 
-<main>
 <div class="container pt-5 pb-4">
  <div class="row">
   <div class="col-md-4">
    <h2>会員トップ</h2>
-  </div>
 
+<table>
+ <tr>新着商品</tr>
   <% @items.each.with_index(1) do |item, i| %>
-   <%= item.name %>
+  <tr>
+   <td><%= item.name %></td>
+   <td>
+    <% if item.image.attached? %>
+     <%= image_tag item.image, size: "200x200" %>
+    <% else %>
+     <%= image_tag 'no_image', size: "200x200" %>
+    <% end %>
+   </td>
+   </tr>
   <% end %>
-
+</table>
   </div>
  </div>
  </main>

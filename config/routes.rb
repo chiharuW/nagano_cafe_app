@@ -38,6 +38,14 @@ Rails.application.routes.draw do
    scope module: :public do
     resources :items, only:[:index, :show]
    end
+   
+   scope module: :public do
+    resources :cart_items, only:[:index, :create, :update, :destroy] do
+     collection do
+      delete :destroy_all
+     end
+    end
+   end
 
    scope module: :public do
     resources :orders, only:[:new, :create, :index, :show] do
@@ -47,6 +55,8 @@ Rails.application.routes.draw do
      end
     end
    end
+
+
 
 
   namespace :admin do
