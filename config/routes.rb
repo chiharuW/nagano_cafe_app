@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 
-   get '/' => 'public/homes#top'
+   root to: 'public/homes#top'
    get '/about'=> "public/homes#about", as: "about"
    # get '/mypage' => 'customers#mypage'
    scope module: :public do
