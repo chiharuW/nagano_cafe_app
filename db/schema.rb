@@ -120,8 +120,8 @@ ActiveRecord::Schema.define(version: 2022_06_07_125029) do
   end
 
   create_table "order_details", force: :cascade do |t|
-    t.integer "item", null: false
-    t.integer "customer", null: false
+    t.integer "item_id", null: false
+    t.integer "customer_id", null: false
     t.string "amount_billed", null: false
     t.integer "amount", null: false
     t.integer "production_active", null: false
