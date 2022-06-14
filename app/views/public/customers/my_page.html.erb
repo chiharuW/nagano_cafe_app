@@ -1,21 +1,35 @@
 <%= render 'public/sessions/list' %>
 
 <div class="container pt-5 pb-4">
+
+ <div class="row">
+  <div class="col-md-2">
+　　<div class="p-3 mb-2 bg-light text-dark">マイページ</div>
+　</div>
+ </div>
+
  <div class="row">
   <div class="col-md-8">
+   <b>登録情報</b>
+   <%= link_to "編集する", edit_page_customers_path, class: "btn btn-sm btn-success ml-3", method: :get %>
+   <table class="table table-bordered  mt-3">
+    <tr scope="row"><td colspan="1" class="table-active">氏名</td><td><%= current_customer.last_name+current_customer.first_name %></td></tr>
+    <tr scope="row"><td colspan="1" class="table-active">カナ</td><td><%= current_customer.last_name_kana+current_customer.first_name_kana %></td></tr>
+    <tr scope="row"><td colspan="1" class="table-active">郵便番号</td><td><%= current_customer.postal_code %></td></tr>
+    <tr scope="row"><td colspan="1" class="table-active">住所</td><td><%= current_customer.address %></td></tr>
+    <tr scope="row"><td colspan="1" class="table-active">電話番号</td><td><%= current_customer.telephone_number %></td></tr>
+    <tr scope="row"><td colspan="1" class="table-active">メールアドレス</td><td><%= current_customer.email %></td></tr>
+ 　</table>
+　</div>
+ </div>
 
-   <h2>マイページ</h2> <h3>会員登録情報</h3>
-<table class="table">
- <tr><td>会員ID</td><td><%= current_customer.id %></td></tr>
- <tr><td>苗字</td><td><%= current_customer.last_name %></td></tr>
- <tr><td>名前</td><td><%= current_customer.first_name %></td></tr>
- <tr><td>郵便番号</td><td><%= current_customer.postal_code %></td></tr>
- <tr><td>住所</td><td><%= current_customer.address %></td></tr>
- <tr><td>電話番号</td><td><%= current_customer.telephone_number %></td></tr>
-</table>
-<%= link_to "編集",  edit_page_customers_path %><br>
-<%= link_to "注文履歴一覧", orders_path %><br>
-<%= link_to "発送先一覧", addresses_path %>
-</div>
-</div>
+ <div class="row mb-2">
+   <b class="col-md-1">配送先</b>
+    <div class="col-md-3"><%= link_to "一覧を見る", addresses_path, class: "btn btn-sm btn-primary ml-3", method: :get %></div>
+ </div>
+ <div class="row">
+   <b class="col-md-1">注文履歴</b>
+   <div class="col-md-3"><%= link_to "一覧を見る", orders_path, class: "btn btn-sm btn-primary ml-3", method: :get %></div>
+ </div>
+
 </div>

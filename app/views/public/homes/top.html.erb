@@ -11,11 +11,7 @@
   <tr>
    <td><%= item.name %></td>
    <td>
-    <% if item.image.attached? %>
-     <%= image_tag item.image, size: "200x200" %>
-    <% else %>
-     <%= image_tag 'no_image', size: "200x200" %>
-    <% end %>
+    <%= image_tag item.get_image, size: '100x100' %>
    </td>
    </tr>
   <% end %>

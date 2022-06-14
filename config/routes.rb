@@ -55,6 +55,10 @@ Rails.application.routes.draw do
      end
     end
    end
+   
+   scope module: :public do
+    resources :order_detail, only:[:index, :show]
+   end
 
 
 

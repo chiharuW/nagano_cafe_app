@@ -17,11 +17,7 @@
   <tr>
     <td><%= link_to item.name, item_path(item.id) %></td>
     <td>
-     <% if item.image.attached? %>
-      <%= image_tag item.image, size: "200x200" %>
-     <% else %>
-      <%= image_tag 'no_image', size: "200x200" %>
-     <% end %>
+  <%= image_tag item.get_image, size: '100x100' %>
     </td>
     <td><%= item.introduction %></td>
     <td><%= item.price %></td>

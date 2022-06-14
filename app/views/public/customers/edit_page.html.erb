@@ -1,26 +1,45 @@
 <%= render 'public/sessions/list' %>
 <div class="container pt-5 pb-4">
- <div class="row">
-  <div class="col-md-6">
 
-<h2>会員情報編集画面</h2>
+ <div class="row">
+  <div class="col-md-2">
+　　<div class="p-3 mb-2 bg-light text-dark">会員情報編集</div>
+　</div>
+ </div>
 
  <%= form_with model: @customer, url:  update_customers_path, method: :patch do |f| %>
- <table>
-  <tr><td>苗字</td><td> <%= f.text_field :last_name %></td></tr>
-  <tr><td>名前</td><td> <%= f.text_field :first_name %></td></tr>
-  <tr><td>苗字かな</td><td> <%= f.text_field :last_name_kana %></td></tr>
-  <tr><td>名前かな</td><td> <%= f.text_field :first_name_kana %></td></tr>
-  <tr><td>郵便番号</td><td> <%= f.text_field :postal_code %></td></tr>
-  <tr><td>住所</td><td> <%= f.text_field :address %></td></tr>
-  <tr><td>電話番号</td><td> <%= f.text_field :telephone_number %></td></tr>
- </table>
-   <%= f.submit '更新' %>
+ 
+  <div class="row mb-3">
+   <div class="col-md-2">氏名</div>
+   <div class="col-md-3"><%= f.text_field :last_name %></div>
+   <div class="col-md-3"><%= f.text_field :first_name %></div>
+  </div>
+  <div class="row mb-3">
+   <div class="col-md-2">フリガナ</div>
+   <div class="col-md-3"><%= f.text_field :last_name_kana %></div>
+   <div class="col-md-3"><%= f.text_field :first_name_kana %></div>
+  </div>
+  <div class="row mb-3">
+   <div class="col-md-2">郵便番号</div>
+   <div class="col-md-3"><%= f.text_field :postal_code %></div>
+  </div>
+  <div class="row mb-3">
+   <div class="col-md-2">住所</div>
+   <div class="col-md-6"><%= f.text_field :address %></div>
+  </div>
+  <div class="row mb-3">
+   <div class="col-md-2">電話番号</div>
+   <div class="col-md-3"><%= f.text_field :telephone_number %></div>
+  </div>
+  <div class="row mb-3">
+   <div class="col-md-2">メールアドレス</div>
+   <div class="col-md-3"><%= f.text_field :email %></div>
+  </div>
+  <div class="row pt-3 pl-5">
+  <%= f.submit '更新内容を保存', class: "btn btn-sm btn-success col-md-3" %>
  <% end %>
-
- <%= link_to "退会する", unsubscribe_customers_path %>
-</div>
-</div>
+　 <%= link_to "退会する", unsubscribe_customers_path, class: "btn btn-sm btn-danger col-md-1" %>
+　</div>
 </div>
 
 
