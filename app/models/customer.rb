@@ -8,11 +8,11 @@ class Customer < ApplicationRecord
   has_many :cart_items, dependent: :destroy
   has_many :orders, dependent: :destroy
 
-  # def full_name
-  #  customer.last_name + " " + customer.first_name
-  # end
+  def full_name
+   last_name + " " + first_name
+  end
 
-  # def full_name_naka
-  #  customer.last_name_kana + " " + customer.first_name_kana
-  # end
+  def full_name_kana
+   last_name_kana + " " + first_name_kana
+  end
 end

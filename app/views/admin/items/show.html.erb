@@ -1,28 +1,39 @@
 <%= render 'admin/sessions/list' %>
+<div class="container">
 
-<h2>商品詳細</h2>
-<table>
-    <tr>
-     <th>商品名</th>
-     <th>商品画像</th>
-     <th>商品説明</th>
-     <th>商品価格</th>
-     <th>商品ジャンル</th>
-    </tr>
-    <tr>
-     <td><%= @item.name %></td>
-     <td>
-      <% if @item.image.attached? %>
-       <%= image_tag @item.image, size: "200x200" %>
-      <% else %>
-       <%= image_tag 'no_image', size: "200x200" %>
-      <% end %>
-    </td>
-     <td><%= @item.introduction %></td>
-     <td><%= @item.price %></td>
-     <td><%= @item.genre_id %></td>
-    </tr>
-</table>
-
-<%= link_to "編集", edit_admin_item_path(@item.id) %>
+ <div class="row">
+  <div class="col-md-4">
+　　<div class="p-3 mb-2 bg-light text-dark">商品詳細</div>
+　</div>
+ </div>
+ 
+ <div>
+  <% if @item.image.attached? %>
+   <%= image_tag @item.image, size: "200x200" %>
+  <% else %>
+   <%= image_tag 'no_image', size: "200x200" %>
+  <% end %>
+ </div>
+ 
+ <div class="row">
+  <div class="col-md-2">商品名</div>
+  <div class="col-md-4"> <%= @item.name %></div>
+ </div>
+ <div class="row mb-2">
+  <div class="col-md-2">商品説明</div>
+  <div class="col-md-4"><%= @item.introduction %></div>
+ </div>
+ <div class="row mb-2">
+  <div class="col-md-2">ジャンル</div>
+  <div class="col-md-4"><%= @item.genre.name %></div>
+ </div>
+ <div class="row mb-2">
+  <div class="col-md-2">税込価格（税抜価格）</div>
+  <div class="col-md-4"><%= @item.with_tax_price %>円（<%= @item.price %>）円</div>
+ </div>
+ 
+ <div class="row mb-5">
+  <%= link_to "編集", edit_admin_item_path(@item.id), class:"btn btn-sm btn-success" %>
+ </div>
+</div>
 

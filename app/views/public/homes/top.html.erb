@@ -1,21 +1,37 @@
 <%= render 'public/sessions/list' %>
 
-<div class="container pt-5 pb-4">
- <div class="row">
-  <div class="col-md-4">
-   <h2>会員トップ</h2>
+<div class="container">
 
-<table>
- <tr>新着商品</tr>
+ <div class="row">
+  <div class="col-md-8 mt-3">
+   <p>ようこそ　ながのCAKEへ！<br>
+   このサイトはケーキ販売のECサイトになります。<br>
+   会員でない方も商品の閲覧はできますが、<br>
+   購入には会員登録が必要になります。<br>
+   </p>
+　</div>
+ </div>
+ 
+ <div class="row">
+  <div class="col-md-2">
+　　<div class="p-3 mb-2 bg-light text-dark">新着商品</div>
+　</div>
+ </div>
+ 
+ <div class="row">
   <% @items.each.with_index(1) do |item, i| %>
-  <tr>
-   <td><%= item.name %></td>
-   <td>
-    <%= image_tag item.get_image, size: '100x100' %>
-   </td>
-   </tr>
+   <div class="col-md-3">
+    <%= image_tag item.get_image, size: '100x100' %><br>
+    <%= item.name %><br>
+    ￥<%= item.price %>
+   </div>
   <% end %>
-</table>
+ </div>
+ 
+ <div class="row">
+  <div class="col-md-3 mb-5">
+   <%= link_to "全ての商品を見る＞", items_path, method: :get %>
   </div>
  </div>
- </main>
+ 
+ </div>

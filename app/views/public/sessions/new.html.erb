@@ -1,39 +1,55 @@
 <%= render 'public/sessions/list' %>
 
-<main>
-<div class="container pt-5 pb-4">
+<div class="container">
+
  <div class="row">
-  <div class="col-md-4">
-    
-    <h2>Log in</h2>
+  <div class="col-md-2">
+　　<div class="p-3 mb-2 bg-light text-dark">ログイン</div>
+　</div>
+ </div>
 
-<%#= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-<%= form_with model: resource, url: customer_session_path, local: true do |f| %>
+ <div class="row">
+  <div class="col-md-3">
+　　<div class="bg-light text-dark">会員の方はこちらからログイン</div>
+　</div>
+ </div>
 
-  <div class="field pt-3">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <div class="row">
+   <div class="col-md-10 mx-4">
+  　<%= form_with model: resource, url: customer_session_path, local: true do |f| %>
+     <div class="field mb-3">
+      <%= f.label :email, "メールアドレス" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+     </div>
 
-  <div class="field pt-3">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+     <div class="field mb-3">
+      <%= f.label :password, "パスワード" %>　　
+      <%= f.password_field :password, autocomplete: "current-password" %>
+     </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field pt-3">
+    <% if devise_mapping.rememberable? %>
+     <div class="field pt-3">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions pt-3">
-    <%= f.submit "Log in" %>
+     </div>
+    <% end %>
+    
+     <div class="actions pt-3">
+     <%= f.submit "ログイン", class: "btn btn-sm btn-primary" %>
+     </div>
+    <% end %>
+    
+　 </div>
   </div>
-<% end %>
 
-<%= render "public/shared/links" %>
-
-</div>
-</div>
+ <div class="row">
+  <div class="col-md-3">
+　　<div class="bg-light text-dark">会員登録がお済でない方</div>
+　</div>
+ </div>
+ <div class="row">
+  <div class="col-md-10 mx-4 mb-5">
+ 　<%= render "public/shared/links" %><p>から会員登録を行ってください。</p>
+　</div>
+ </div>
 </div>

@@ -1,25 +1,21 @@
 <%= render 'admin/sessions/list' %>
+<div class="container">
+ <div class="row">
+  <div class="col-md-3">
+　　<div class="p-3 mb-2 bg-light text-dark"><%= @customer.full_name %>の会員詳細</div>
+　</div>
+　</div>
 
-<h2>会員詳細</h2>
-
-<table>
- <tr>
-  <th>会員ID</th>
-  <th>会員氏名</th>
-  <th>会員氏名(かな)</th>
-  <th>メールアドレス</th>
-  <th>郵便番号</th>
-  <th>住所</th>
-  <th>電話番号</th>
- </tr>
- <tr>
-  <td><%= @customer.id %></td>
-  <td><%= @customer.full_name %></td>
-  <td><%= @customer.full_name_kana %></td>
-  <td><%= @customer.email%></td>
-  <td><%= @customer.postal_code %></td>
-  <td><%= @customer.address %></td>
-  <td><%= @customer.telephone_number %></td>
- </tr>
-
- <%= link_to "編集", edit_admin_customer_path(@customer.id) %>
+   <table class="table table-bordered">
+    <tr scope="row"><td class="table-active">会員ID</td><td><%= @customer.id %></td></tr>
+    <tr scope="row"><td class="table-active">氏名</td><td><%= @customer.full_name %></td></tr>
+    <tr scope="row"><td class="table-active">フリカナ</td><td><%= @customer.full_name_kana %></td></tr>
+    <tr scope="row"><td class="table-active">郵便番号</td><td><%= @customer.postal_code %></td></tr>
+    <tr scope="row"><td class="table-active">住所</td><td><%= @customer.address %></td></tr>
+    <tr scope="row"><td class="table-active">電話番号</td><td><%= @customer.telephone_number %></td></tr>
+    <tr scope="row"><td class="table-active">メールアドレス</td><td><%= @customer.email %></td></tr>
+ 　</table>
+ 　<div class="row pt-3 pl-5 mb-5">
+    <%= link_to "編集", edit_admin_customer_path(@customer.id), class: "btn btn-sm btn-success col-md-3" %>
+    </div>
+ </div>

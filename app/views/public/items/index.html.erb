@@ -1,31 +1,22 @@
 <%= render 'public/sessions/list' %>
 <div class="container pt-5 pb-4">
+
  <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-2">
+　　<div class="p-3 mb-2 bg-light text-dark">商品一覧</div>
+　</div>
+ </div>
 
-
-<h2>商品一覧</h2>
-   <table>
-    <tr>
-    <th>商品名</th>
-    <th>商品</th>
-    <th>商品説明</th>
-    <th>商品価格</th>
-    <th>商品ジャンル</th>
-  </tr>
-  <% @items.each do |item| %>
-  <tr>
-    <td><%= link_to item.name, item_path(item.id) %></td>
-    <td>
-  <%= image_tag item.get_image, size: '100x100' %>
-    </td>
-    <td><%= item.introduction %></td>
-    <td><%= item.price %></td>
-    <td><%= item.genre.name %> </td>
-  </tr>
+ <div class="row">
+   <% @items.each do |item| %>
+   <div class="col-md-3">
+    <%= image_tag item.get_image, size: '100x100' %><br>
+    <%= link_to item.name, item_path(item.id) %><br>
+    ￥<%= item.price %>
+   </div>
   <% end %>
-</table>
+ </div>
 
-</div>
-</div>
+
+
 </div>

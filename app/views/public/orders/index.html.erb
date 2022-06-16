@@ -1,7 +1,13 @@
 <%= render 'public/sessions/list' %>
-<div class="container pt-5 pb-4">
 
-<h2>注文履歴一覧</h2>
+<div class="container">
+
+ <div class="row">
+  <div class="col-md-2">
+　　<div class="p-3 mb-2 bg-light text-dark">注文履歴一覧</div>
+　</div>
+ </div>
+
 <table class="table">
   <thead>
     <tr class="bg-light">
@@ -13,7 +19,6 @@
       <th scope="col">注文詳細</th>
    </tr>
   </thead>
-
  <% @orders.each do |order| %>
   <tbody>
    <tr>
@@ -21,17 +26,11 @@
       <td>〒<%= order.postal_code %><br><%= order.address %><br><%= order.name %></td>
       <td></td>
       <td><%= order.total_payment %>円</td>
-      <td><%= order.status %></td>
+      <td><%= order.status_i18n %></td>
       <td><%= link_to "表示する", order_path(order.id), class: "btn btn-sm btn-primary", method: :get %></td>
     </tr>
-
   </tbody>
   <% end %>
+  </table>
 
-
-<div class="row">
-    <div class="col-md-8">
-      <table class="table">
-        <thead>
-        </thead>
-      </table>
+  </div>
