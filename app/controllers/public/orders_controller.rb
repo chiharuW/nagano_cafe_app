@@ -66,8 +66,7 @@ end
 
 def show
  @order = Order.find(params[:id])
- @order_details = OrderDetail.all
- # @item
+ @order_details = @order.order_details
 end
 
   private

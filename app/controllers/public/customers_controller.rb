@@ -1,5 +1,5 @@
 class Public::CustomersController < ApplicationController
- 
+
   def my_page
   end
 
@@ -8,13 +8,14 @@ class Public::CustomersController < ApplicationController
   end
 
   def withdraw
-   @customer=current_customer
+   @customer = current_customer
    @customer.update(is_deleted: true) #ここでis_deletedカラムの値をtrueに更新します。
    reset_session #この記述で現在のログイン状況をリセットすることができます。
    flash[:notice] = "退会が完了しました。" #フラッシュメッセージがあると親切ですね！
-   redirect_to about_path #処理完了後ルートパスへ遷移します。
-  end  
-  
+   redirect_to root_path #処理完了後ルートパスへ遷移します。
+  end
+
+
   def edit_page
    @customer = current_customer
   end
@@ -28,7 +29,7 @@ class Public::CustomersController < ApplicationController
 
 private
   def customer_params
-   params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :telephone_number)
+   params.require(:customer).permit(:email, :last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :telephone_number,  :is_deleted)
   end
 
   def ensure_correct_customer

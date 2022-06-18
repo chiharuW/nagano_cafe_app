@@ -38,6 +38,15 @@
    <div class="col-md-2">メールアドレス</div>
    <div class="col-md-3"><%= f.text_field :email %></div>
   </div>
+  
+  <div class="row mb-3">
+   <div class="col-md-2">会員ステータス</div>
+   <%= f.radio_button :is_active, :default %>
+   <%= f.label :is_active_default, '有効' %>
+   <%= f.radio_button :is_active, :false %>  
+   <%= f.label  :is_active_draft_false, '退会' %>
+  </div>
+  
   <div class="row pt-3 pl-5 mb-5">
    <%= f.submit '更新内容を保存', class: "btn btn-sm btn-success col-md-3" %>
 　 <% end %>

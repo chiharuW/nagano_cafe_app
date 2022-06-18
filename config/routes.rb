@@ -68,8 +68,11 @@ Rails.application.routes.draw do
    resources :genres, only: [:edit, :index, :create, :update]
    resources :items, only: [:new, :show, :edit, :index, :create, :update]
    resources :customers, only: [:index, :show, :edit, :update]
-   resources :orders, only: [:index, :show, :edit, :update]
    resources :sessions, only:[:new, :create, :destroy]
+   
+   resources :orders, only: [:index, :show, :edit, :update]
+   resources :order_details, only: [:update]
+
   end
 
 end

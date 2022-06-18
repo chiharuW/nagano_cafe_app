@@ -7,15 +7,16 @@
 　</div>
 
    <table class="table table-bordered">
-    <tr scope="row"><td class="table-active">会員ID</td><td><%= @customer.id %></td></tr>
+    <tr scope="row"><td class="table-active col-md-2">会員ID</td><td><%= @customer.id %></td></tr>
     <tr scope="row"><td class="table-active">氏名</td><td><%= @customer.full_name %></td></tr>
     <tr scope="row"><td class="table-active">フリカナ</td><td><%= @customer.full_name_kana %></td></tr>
     <tr scope="row"><td class="table-active">郵便番号</td><td><%= @customer.postal_code %></td></tr>
     <tr scope="row"><td class="table-active">住所</td><td><%= @customer.address %></td></tr>
     <tr scope="row"><td class="table-active">電話番号</td><td><%= @customer.telephone_number %></td></tr>
     <tr scope="row"><td class="table-active">メールアドレス</td><td><%= @customer.email %></td></tr>
+    <tr scope="row"><td class="table-active">会員ステータス</td><td><%= @customer.is_deleted ? '退会' :'有効' %></td></tr>
  　</table>
  　<div class="row pt-3 pl-5 mb-5">
-    <%= link_to "編集", edit_admin_customer_path(@customer.id), class: "btn btn-sm btn-success col-md-3" %>
+    <%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-sm btn-success col-md-3" %>
     </div>
  </div>

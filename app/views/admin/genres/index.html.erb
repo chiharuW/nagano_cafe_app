@@ -11,10 +11,11 @@
  <div class="col-md-2">ジャンル名</div>
  <div class="col-md-3">
   <%= form_with model: @genre, url: admin_genres_path, method: :post do |f| %>
-  <%= f.text_field :name %>
+   <%= f.text_field :name %>
  </div>
  <div class="col-md-2">
-  <%= f.submit"新規追加", class:"btn btn-sm btn-success" %><% end %>
+   <%= f.submit"新規追加", class:"btn btn-sm btn-success" %>
+  <% end %>
  </div>
 </div>
 

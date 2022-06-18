@@ -1,9 +1,13 @@
 <%= render 'public/sessions/list' %>
 <div class="container pt-5 pb-4">
 
+ <div class="row">
+  <div class="col-md-2"><div class="p-3 mb-2 bg-light text-dark">注文情報確認</div></div>
+　<div class="col-md-5"><div><%= link_to "カートを空にする", destroy_all_cart_items_path, method: :delete, class:"btn btn-danger", "data-confirm" => "カート内の商品をすべて削除します。よろしいですか" %></td></div>
+  </div>
+  
+  </div>
 
-<h2>注文情報確認</h2>
-<div><%= link_to "カートを空にする", destroy_all_cart_items_path, method: :delete, class:"btn btn-danger", "data-confirm" => "カート内の商品をすべて削除します。よろしいですか" %></td></div>
 <div class="row">
     <div class="col-md-8">
       <table class="table">
@@ -54,7 +58,7 @@
 
 <div class="row">
  <div class="col-8">
-  <p>支払方法　<%= @order.payment_method %></p>
+  <p>支払方法　<%= @order.payment_method_i18n %></p>
   <p>お届け先　〒<%= @order.postal_code %> <%= @order.address %> <%= @order.name%></p>
 
    <%= form_with model: @order, url:  orders_path, method: :post do |f| %>
